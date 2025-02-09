@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Audio Processor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            margin: 15px auto;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #ee0979, #ff6a00);
+            transform: scale(1.05);
+        }
+
+        button:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+        #loading-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 12px;
+            background-color: #333;
+            border-radius: 6px;
+            margin: 20px auto;
+            display: none;
+            overflow: hidden;
+        }
+
+        #loading-progress {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #00c6ff, #007bff);
+            transition: width 0.3s ease;
+            border-radius: 6px;
+        }
+
+        audio {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            background-color: #222;
+            display: none;
+        }
+
+        #download-link {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #00c6ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #00c6ff;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        #download-link:hover {
+            background-color: #00c6ff;
+            color: #121212;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Retro Audio Processor</h1>
+    <p>Upload a sound file and transform it into a classic 90s game sound!</p>
+
+    <input type="file" id="audio-upload" accept=".wav,.mp3,.ogg">
+    <button id="process-button" disabled>Process Audio</button>
+
+    <div id="loading-bar">
+        <div id="loading-progress"></div>
+    </div>
+
+    <audio id="audio-player" controls></audio>
+    <a id="download-link">⬇ Download Processed Audio</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
